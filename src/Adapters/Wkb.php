@@ -194,7 +194,7 @@ class Wkb extends GeoAdapter implements Factory, Extractor
         return [
             'x' => $point->getX(),
             'y' => $point->getY(),
-            'z' => $point->z(),
+            'z' => $point->getZ(),
             'm' => null,
         ];
     }
