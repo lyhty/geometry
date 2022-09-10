@@ -112,10 +112,7 @@ abstract class Geometry implements Jsonable, Arrayable, JsonSerializable
      *
      * @return int
      */
-    public function dimension(): int
-    {
-        return 0;
-    }
+    abstract public function dimension(): int;
 
     /**
      * Returns the Spatial Reference System ID for this geometric object.

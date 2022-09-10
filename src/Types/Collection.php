@@ -2,12 +2,16 @@
 
 namespace Lyhty\Geometry\Types;
 
+use ArrayIterator;
+use Countable;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
+use IteratorAggregate;
 use Lyhty\Geometry\Exceptions\GeosNotInstalledException;
 use Lyhty\Geometry\Geom;
+use Traversable;
 
-abstract class Collection extends Geometry
+abstract class Collection extends Geometry implements Countable, IteratorAggregate
 {
     /**
      * @var Geometry[]
@@ -169,6 +173,22 @@ abstract class Collection extends Geometry
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public function count(): int
+    {
+        return $this->numGeometries();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getIterator(): Traversable
+    {
+        return new ArrayIterator($this->components);
+    }
+
+    /**
      * Return the N geometry of the Geometry.
      *
      * @param int
@@ -177,9 +197,9 @@ abstract class Collection extends Geometry
     {
         if (array_key_exists($n - 1, $this->components)) {
             return $this->components[$n - 1];
-        } else {
-            return null;
         }
+
+        return null;
     }
 
     /**
@@ -244,15 +264,15 @@ abstract class Collection extends Geometry
     {
         if (! count($this->components)) {
             return true;
-        } else {
-            foreach ($this->components as $component) {
-                if (! $component->isEmpty()) {
-                    return false;
-                }
-            }
-
-            return true;
         }
+
+        foreach ($this->components as $component) {
+            if (! $component->isEmpty()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**

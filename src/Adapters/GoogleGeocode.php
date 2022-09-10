@@ -98,9 +98,9 @@ class GoogleGeocode extends GeoAdapter
 
         if ($this->result->status) {
             throw new Exception('Error in Google Geocoder: '.$this->result->status);
-        } else {
-            throw new Exception('Unknown error in Google Geocoder');
         }
+
+        throw new Exception('Unknown error in Google Geocoder');
     }
 
     /**
@@ -134,9 +134,9 @@ class GoogleGeocode extends GeoAdapter
 
         if ($this->result->status) {
             throw new Exception('Error in Google Reverse Geocoder: '.$this->result->status);
-        } else {
-            throw new Exception('Unknown error in Google Reverse Geocoder');
         }
+
+        throw new Exception('Unknown error in Google Reverse Geocoder');
     }
 
     private function getPoint($delta = 0)

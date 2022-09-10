@@ -134,11 +134,12 @@ class Kml extends GeoAdapter
     protected function parsePoint($xml)
     {
         $coordinates = $this->_extractCoordinates($xml);
+
         if (! empty($coordinates)) {
             return new Point($coordinates[0][0], $coordinates[0][1]);
-        } else {
-            return new Point;
         }
+
+        return new Point;
     }
 
     protected function parseLineString($xml)

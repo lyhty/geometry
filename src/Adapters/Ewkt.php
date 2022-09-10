@@ -24,8 +24,8 @@ class Ewkt extends Wkt
             $wkt .= parent::write($geometry);
 
             return $wkt;
-        } else {
-            return parent::write($geometry);
         }
+
+        return parent::write($geometry);
     }
 }

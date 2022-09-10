@@ -10,6 +10,11 @@ use Lyhty\Geometry\Contracts\SingleGeometryElement;
  */
 class LineString extends HomogenousCollection implements SingleGeometryElement
 {
+    /**
+     * @var Point[]
+     */
+    protected array $components = [];
+
     protected static string $geomType = 'LineString';
 
     protected static string $collectionComponentClass = Point::class;
@@ -92,7 +97,7 @@ class LineString extends HomogenousCollection implements SingleGeometryElement
      */
     public function dimension(): int
     {
-        return $this->isEmpty() ? 0 : 1;
+        return 1;
     }
 
     /**

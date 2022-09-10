@@ -10,6 +10,11 @@ use Lyhty\Geometry\Contracts\MultiGeometryElement;
  */
 class MultiLineString extends HomogenousCollection implements MultiGeometryElement
 {
+    /**
+     * @var LineString[]
+     */
+    protected array $components = [];
+
     protected static string $geomType = 'MultiLineString';
 
     protected static string $collectionComponentClass = LineString::class;

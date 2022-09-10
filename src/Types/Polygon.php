@@ -11,6 +11,11 @@ use Lyhty\Geometry\Exceptions\GeosNotInstalledException;
  */
 class Polygon extends HomogenousCollection implements SingleGeometryElement
 {
+    /**
+     * @var LineString[]
+     */
+    protected array $components = [];
+
     protected static string $geomType = 'Polygon';
 
     protected static string $collectionComponentClass = LineString::class;
@@ -63,6 +68,7 @@ class Polygon extends HomogenousCollection implements SingleGeometryElement
         if ($exteriorOnly == true) {
             return $area;
         }
+
         foreach ($this->components as $delta => $component) {
             if ($delta != 0) {
                 $innerPoly = new Polygon([$component]);
@@ -184,7 +190,7 @@ class Polygon extends HomogenousCollection implements SingleGeometryElement
      */
     public function dimension(): int
     {
-        return $this->isEmpty() ? 0 : 2;
+        return 2;
     }
 
     /**
@@ -273,9 +279,9 @@ class Polygon extends HomogenousCollection implements SingleGeometryElement
         // If the number of edges we passed through is even, then it's in the polygon.
         if ($intersections % 2 != 0) {
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     public function pointOnVertex($point)

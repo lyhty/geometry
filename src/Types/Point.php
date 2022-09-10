@@ -2,78 +2,42 @@
 
 namespace Lyhty\Geometry\Types;
 
-use Exception;
 use Lyhty\Geometry\Contracts\SingleGeometryElement;
 
 class Point extends Geometry implements SingleGeometryElement
 {
-    protected array $coords = [0, 0];
-
     protected static string $geomType = 'Point';
-
-    protected int $dimension = 2;
 
     /**
      * The Point constructor
      *
-     * @param  float|null  $x The x coordinate (or longitude)
-     * @param  float|null  $y The y coordinate (or latitude)
-     * @param  float|null  $z The z coordinate (or altitude) [optional]
+     * @param  float  $x The x coordinate (or longitude)
+     * @param  float  $y The y coordinate (or latitude)
+     * @param  float  $z The z coordinate (or altitude) [optional]
      */
-    public function __construct(float $x = null, float $y = null, float $z = null)
-    {
-        // Check if it's an empty point
-        if ($x === null && $y === null) {
-            $this->coords = [null, null];
-            $this->dimension = 0;
-
-            return;
-        }
-
-        // Basic validation on x and y
-        if (! is_float($x) || ! is_float($y)) {
-            throw new Exception('Cannot construct Point. x and y should be numeric');
-        }
-
-        // Check to see if this is a 3D point
-        if ($z !== null) {
-            if (! is_float($z)) {
-                throw new Exception('Cannot construct Point. z should be numeric');
-            }
-
-            $this->dimension = 3;
-        }
-
-        // Convert to floatval in case they are passed in as a string or integer etc.
-        $x = floatval($x);
-        $y = floatval($y);
-        $z = floatval($z);
-
-        // Add poitional elements
-        if ($this->dimension == 2) {
-            $this->coords = [$x, $y];
-        }
-        if ($this->dimension == 3) {
-            $this->coords = [$x, $y, $z];
-        }
+    public function __construct(
+        protected ?float $x = null,
+        protected ?float $y = null,
+        protected ?float $z = null
+    ) {
     }
 
     /**
      * Get X (longitude) coordinate
      *
-     * @return float The X coordinate
+     * @return float|null
      */
-    public function getX(): float
+    public function getX(): ?float
     {
-        return $this->coords[0];
+        return $this->x;
     }
 
     /**
      * Alias for `static::getX()`.
      *
-     * @return float
+     * @return float|null
      */
-    public function getLng(): float
+    public function getLng(): ?float
     {
         return $this->getX();
     }
@@ -81,19 +45,19 @@ class Point extends Geometry implements SingleGeometryElement
     /**
      * Returns Y (latitude) coordinate
      *
-     * @return float The Y coordinate
+     * @return float|null
      */
-    public function getY(): float
+    public function getY(): ?float
     {
-        return $this->coords[1];
+        return $this->y;
     }
 
     /**
      * Alias for `static::getY()`.
      *
-     * @return float
+     * @return float|null
      */
-    public function getLat(): float
+    public function getLat(): ?float
     {
         return $this->getY();
     }
@@ -101,13 +65,21 @@ class Point extends Geometry implements SingleGeometryElement
     /**
      * Returns Z (altitude) coordinate
      *
-     * @return float The Z coordinate or null is not a 3D point
+     * @return float|null
      */
-    public function z(): ?float
+    public function getZ(): ?float
     {
-        return $this->dimension == 3
-            ? $this->coords[2]
-            : null;
+        return $this->z;
+    }
+
+    /**
+     * Alias for `static::getZ()`.
+     *
+     * @return float|null
+     */
+    public function getAlt(): ?float
+    {
+        return $this->getZ();
     }
 
     /**
@@ -138,7 +110,13 @@ class Point extends Geometry implements SingleGeometryElement
      */
     public function getCoordinates(): array
     {
-        return $this->coords;
+        $coords = ['x' => $this->getX(), 'y' => $this->getY()];
+
+        if (!is_null($z = $this->getZ())) {
+            $coords['z'] = $z;
+        }
+
+        return $coords;
     }
 
     /**
@@ -154,7 +132,7 @@ class Point extends Geometry implements SingleGeometryElement
      */
     public function isEmpty(): bool
     {
-        return $this->dimension === 0;
+        return false;
     }
 
     /**
@@ -192,11 +170,13 @@ class Point extends Geometry implements SingleGeometryElement
 
         if (! $this->isEmpty() && ! $geometry->isEmpty()) {
             return $this->getX() == $geometry->getX() && $this->getY() == $geometry->getY();
-        } elseif ($this->isEmpty() && $geometry->isEmpty()) {
-            return true;
-        } else {
-            return false;
         }
+
+        if ($this->isEmpty() && $geometry->isEmpty()) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -205,5 +185,13 @@ class Point extends Geometry implements SingleGeometryElement
     public function isSimple(): bool
     {
         return true;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function dimension(): int
+    {
+        return 0;
     }
 }

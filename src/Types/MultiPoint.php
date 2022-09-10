@@ -10,6 +10,11 @@ use Lyhty\Geometry\Contracts\MultiGeometryElement;
  */
 class MultiPoint extends HomogenousCollection implements MultiGeometryElement
 {
+    /**
+     * @var Point[]
+     */
+    protected array $components = [];
+
     protected static string $geomType = 'MultiPoint';
 
     protected static string $collectionComponentClass = Point::class;

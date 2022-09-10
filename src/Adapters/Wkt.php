@@ -47,9 +47,9 @@ class Wkt extends GeoAdapter
                 $geom->setSRID($srid);
 
                 return $geom;
-            } else {
-                return $this->factory->geosToGeometry($reader->read($wkt));
             }
+
+            return $this->factory->geosToGeometry($reader->read($wkt));
         }
         $wkt = str_replace(', ', ',', $wkt);
 
@@ -57,6 +57,7 @@ class Wkt extends GeoAdapter
         // beginning of the string. If we do, then parse using that type
         foreach (array_keys($this->factory->lcGeometryList()) as $geomType) {
             $wktGeom = strtoupper($geomType);
+
             if (strtoupper(substr($wkt, 0, strlen($wktGeom))) == $wktGeom) {
                 $dataString = $this->getDataString($wkt);
                 $method = 'parse'.$geomType;
@@ -66,9 +67,9 @@ class Wkt extends GeoAdapter
                     $geom->setSRID($srid);
 
                     return $geom;
-                } else {
-                    return $this->$method($dataString);
                 }
+
+                return $this->$method($dataString);
             }
         }
     }
@@ -223,11 +224,13 @@ class Wkt extends GeoAdapter
 
         if ($firstParen !== false) {
             return substr($wkt, $firstParen);
-        } elseif (strstr($wkt, 'EMPTY')) {
-            return 'EMPTY';
-        } else {
-            return false;
         }
+
+        if (strstr($wkt, 'EMPTY')) {
+            return 'EMPTY';
+        }
+
+        return false;
     }
 
     /**
@@ -284,27 +287,32 @@ class Wkt extends GeoAdapter
      */
     public function extractData(Geometry $geometry)
     {
-        $parts = [];
         if ($geometry instanceof Point) {
             return $geometry->getX().' '.$geometry->getY();
-        } elseif ($geometry instanceof SingleGeometryElement) {
+        }
+
+        $parts = [];
+
+        if ($geometry instanceof SingleGeometryElement) {
             foreach ($geometry->getComponents() as $component) {
                 $parts[] = $this->extractData($component);
             }
 
             return implode(', ', $parts);
-        } elseif ($geometry instanceof MultiGeometryElement) {
+        }
+
+        if ($geometry instanceof MultiGeometryElement) {
             foreach ($geometry->getComponents() as $component) {
                 $parts[] = '('.$this->extractData($component).')';
             }
 
             return implode(', ', $parts);
-        } else {
-            foreach ($geometry->getComponents() as $component) {
-                $parts[] = strtoupper($component->geometryType()).' ('.$this->extractData($component).')';
-            }
-
-            return implode(', ', $parts);
         }
+
+        foreach ($geometry->getComponents() as $component) {
+            $parts[] = strtoupper($component->geometryType()).' ('.$this->extractData($component).')';
+        }
+
+        return implode(', ', $parts);
     }
 }

@@ -84,17 +84,17 @@ class GeoHash extends GeoAdapter
         $ll = $this->decode($hash);
         if (! $asGrid) {
             return new Point($ll['medlon'], $ll['medlat']);
-        } else {
-            return new Polygon([
-                new LineString([
-                    new Point($ll['minlon'], $ll['maxlat']),
-                    new Point($ll['maxlon'], $ll['maxlat']),
-                    new Point($ll['maxlon'], $ll['minlat']),
-                    new Point($ll['minlon'], $ll['minlat']),
-                    new Point($ll['minlon'], $ll['maxlat']),
-                ]),
-            ]);
         }
+
+        return new Polygon([
+            new LineString([
+                new Point($ll['minlon'], $ll['maxlat']),
+                new Point($ll['maxlon'], $ll['maxlat']),
+                new Point($ll['maxlon'], $ll['minlat']),
+                new Point($ll['minlon'], $ll['minlat']),
+                new Point($ll['minlon'], $ll['maxlat']),
+            ]),
+        ]);
     }
 
     /**
@@ -111,29 +111,29 @@ class GeoHash extends GeoAdapter
 
         if ($geometry->geometryType() === 'Point') {
             return $this->encodePoint($geometry, $precision);
-        } else {
-            // The geohash is the hash grid ID that fits the envelope
-            $envelope = $geometry->envelope();
-            $geohashes = [];
-            $geohash = '';
-
-            foreach ($envelope->getPointsFlatMap() as $point) {
-                $geohashes[] = $this->encodePoint($point, 0.0000001);
-            }
-            $i = 0;
-            while ($i < strlen($geohashes[0])) {
-                $char = $geohashes[0][$i];
-                foreach ($geohashes as $hash) {
-                    if ($hash[$i] != $char) {
-                        return $geohash;
-                    }
-                }
-                $geohash .= $char;
-                $i++;
-            }
-
-            return $geohash;
         }
+
+        // The geohash is the hash grid ID that fits the envelope
+        $envelope = $geometry->envelope();
+        $geohashes = [];
+        $geohash = '';
+
+        foreach ($envelope->getPointsFlatMap() as $point) {
+            $geohashes[] = $this->encodePoint($point, 0.0000001);
+        }
+        $i = 0;
+        while ($i < strlen($geohashes[0])) {
+            $char = $geohashes[0][$i];
+            foreach ($geohashes as $hash) {
+                if ($hash[$i] != $char) {
+                    return $geohash;
+                }
+            }
+            $geohash .= $char;
+            $i++;
+        }
+
+        return $geohash;
     }
 
     /**

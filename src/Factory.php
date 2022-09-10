@@ -309,9 +309,9 @@ class Factory
             // If SRID byte is TRUE (1), it's EWKB
             if ($bytes[5]) {
                 return 'ewkb';
-            } else {
-                return 'wkb';
             }
+
+            return 'wkb';
         }
 
         // Detect HEX encoded WKB or EWKB (PostGIS format) -- first byte is 48, second byte is 49 (hex '01' => first-byte = 1)
