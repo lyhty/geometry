@@ -124,7 +124,7 @@ class Point extends Geometry implements SingleGeometryElement
      */
     public function toGeoJsonArray(): array
     {
-        return $this->getCoordinates();
+        return array_values($this->getCoordinates());
     }
 
     /**
