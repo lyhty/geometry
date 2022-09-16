@@ -6,15 +6,12 @@ use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Database\Query\Expression;
 use JsonSerializable;
-use Lyhty\Geometry\Types\Geometry;
 
 /**
  * @property \Lyhty\Geometry\Types\Geometry $value
  */
 class GeometryExpression extends Expression implements JsonSerializable, Arrayable, Jsonable
 {
-    protected Geometry $value;
-
     public function getValue()
     {
         return "ST_GeomFromText(?, ?, 'axis-order=long-lat')";
