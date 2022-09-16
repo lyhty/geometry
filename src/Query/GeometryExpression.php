@@ -5,13 +5,18 @@ namespace Lyhty\Geometry\Query;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Database\Query\Expression;
+use Illuminate\Support\Traits\ForwardsCalls;
 use JsonSerializable;
 
 /**
+ * @mixin \Lyhty\Geometry\Types\Geometry
+ *
  * @property \Lyhty\Geometry\Types\Geometry $value
  */
 class GeometryExpression extends Expression implements JsonSerializable, Arrayable, Jsonable
 {
+    use ForwardsCalls;
+
     public function getValue()
     {
         return "ST_GeomFromText(?, ?, 'axis-order=long-lat')";
@@ -40,5 +45,10 @@ class GeometryExpression extends Expression implements JsonSerializable, Arrayab
     public function toArray()
     {
         return $this->value->toArray();
+    }
+
+    public function __call($name, $arguments)
+    {
+        return $this->forwardCallTo($this->value, $name, $arguments);
     }
 }
