@@ -3,6 +3,7 @@
 </p>
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/lyhty/geometry.svg?style=flat-square)](https://packagist.org/packages/lyhty/geometry)
+[![PHP](https://img.shields.io/packagist/php-v/lyhty/geometry?style=flat-square)](https://packagist.org/packages/lyhty/geometry)
 [![Total Downloads](https://img.shields.io/packagist/dt/lyhty/geometry.svg?style=flat-square)](https://packagist.org/packages/lyhty/geometry)
 [![License](https://img.shields.io/packagist/l/lyhty/geometry.svg?style=flat-square)](https://packagist.org/packages/lyhty/geometry)
 <!-- [![Tests](https://img.shields.io/github/workflow/status/lyhty/geometry/Run%20tests?style=flat-square)](https://github.com/lyhty/geometry/actions/workflows/php.yml) -->
