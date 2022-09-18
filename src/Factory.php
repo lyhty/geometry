@@ -2,7 +2,6 @@
 
 namespace Lyhty\Geometry;
 
-use Attribute;
 use Closure;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Support\Arr;

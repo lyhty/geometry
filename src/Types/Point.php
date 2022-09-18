@@ -112,7 +112,7 @@ class Point extends Geometry implements SingleGeometryElement
     {
         $coords = ['x' => $this->getX(), 'y' => $this->getY()];
 
-        if (!is_null($z = $this->getZ())) {
+        if (! is_null($z = $this->getZ())) {
             $coords['z'] = $z;
         }
 

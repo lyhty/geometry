@@ -62,7 +62,7 @@ class Builder extends QueryBuilder
 
     public function selectDistanceValue($column, Geometry $geometry)
     {
-        if (!$this->columns) {
+        if (! $this->columns) {
             $this->select('*');
         }
 
@@ -91,7 +91,7 @@ class Builder extends QueryBuilder
 
     public function selectDistanceSphereValue($column, Geometry $geometry)
     {
-        if (!$this->columns) {
+        if (! $this->columns) {
             $this->select('*');
         }
 
@@ -103,7 +103,7 @@ class Builder extends QueryBuilder
 
     protected function spatialComparison($column, Geometry $geometry, $relationship)
     {
-        if (!in_array($relationship, $this->stRelations)) {
+        if (! in_array($relationship, $this->stRelations)) {
             throw new BadMethodCallException(sprintf(
                 'Call to undefined method %s::%s()', static::class, ''
             ));
@@ -157,7 +157,7 @@ class Builder extends QueryBuilder
 
     protected function orderBySpatial($column, Geometry $geometry, $orderFunction, $direction = 'asc')
     {
-        if (!in_array($orderFunction, $this->stOrderFunctions)) {
+        if (! in_array($orderFunction, $this->stOrderFunctions)) {
             throw new BadMethodCallException(sprintf(
                 'Call to undefined method %s::%s()', static::class, ''
             ));
