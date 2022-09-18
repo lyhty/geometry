@@ -18,7 +18,7 @@ use Lyhty\Geometry\Types\Point;
  */
 
 /**
- * PHP Geometry/GPX encoder/decoder
+ * PHP Geometry/GPX encoder/decoder.
  */
 class Gpx extends GeoAdapter
 {
@@ -27,9 +27,9 @@ class Gpx extends GeoAdapter
     private $nss = ''; // Name-space string. eg 'georss:'
 
     /**
-     * Read GPX string into geometry objects
+     * Read GPX string into geometry objects.
      *
-     * @param  string  $gpx A GPX string
+     * @param  string  $gpx  A GPX string
      * @return Geometry
      */
     public function read($gpx)

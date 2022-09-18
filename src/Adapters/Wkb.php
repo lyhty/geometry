@@ -25,16 +25,16 @@ use Lyhty\Geometry\Types\Polygon;
  */
 
 /**
- * PHP Geometry/WKB encoder/decoder
+ * PHP Geometry/WKB encoder/decoder.
  */
 class Wkb extends GeoAdapter implements Factory, Extractor
 {
     /**
-     * Read WKB into geometry objects
+     * Read WKB into geometry objects.
      *
      * @param  string  $wkb
-     * Well-known-binary string
-     * @param  bool  $isHexString [optional]
+     *                       Well-known-binary string
+     * @param  bool  $isHexString  [optional]
      * @return Geometry
      */
     public function read($wkb, bool $isHexString = false)
@@ -55,7 +55,7 @@ class Wkb extends GeoAdapter implements Factory, Extractor
      * Serialize geometries into WKB string.
      *
      * @param  Geometry  $geometry
-     * @param  array  $options [optional]
+     * @param  array  $options  [optional]
      * @return string The WKB string representation of the input geometries
      */
     public function write(Geometry $geometry, bool $writeAsHex = false, array $options = [])
@@ -177,7 +177,7 @@ class Wkb extends GeoAdapter implements Factory, Extractor
     }
 
     /**
-     * Structure of the returned array:
+     * Structure of the returned array:.
      *
      * [
      *     'x' => $x, // float

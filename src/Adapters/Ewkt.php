@@ -5,7 +5,7 @@ namespace Lyhty\Geometry\Adapters;
 use Lyhty\Geometry\Types\Geometry;
 
 /**
- * EWKT (Extended Well-Known Text) Adapter
+ * EWKT (Extended Well-Known Text) Adapter.
  */
 class Ewkt extends Wkt
 {

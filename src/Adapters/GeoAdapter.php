@@ -15,7 +15,7 @@ use Lyhty\Geometry\Types\Geometry;
 
 /**
  * GeoAdapter : abstract class which represents an adapter
- * for reading and writing to and from Geometry objects
+ * for reading and writing to and from Geometry objects.
  */
 abstract class GeoAdapter
 {

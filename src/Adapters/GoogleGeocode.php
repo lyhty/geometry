@@ -20,7 +20,7 @@ use Lyhty\Geometry\Types\Polygon;
  */
 
 /**
- * PHP Google Geocoder Adapter
+ * PHP Google Geocoder Adapter.
  *
  *
  * @author     Patrick Hayes <patrick.d.hayes@gmail.com>
@@ -28,20 +28,15 @@ use Lyhty\Geometry\Types\Polygon;
 class GoogleGeocode extends GeoAdapter
 {
     /**
-     * Read an address string or array geometry objects
+     * Read an address string or array geometry objects.
      *
-     * @param  string  $address
-     * Address to geocode
-     * @param  string  $token
-     * Public key to access the API.
-     * @param  string  $returnType
-     * Type of Geometry to return. Can either be 'points' or 'bounds' (polygon)
-     * @param  Geometry|array[]|null  $bounds
-     * Limit the search area to within this region. For example by default geocoding
-     * "Cairo" will return the location of Cairo Egypt. If you pass a polygon of
-     * illinois, it will return Cairo IL.
-     * @param  bool  $returnMultiple
-     * Return all results in a multipoint or multipolygon
+     * @param  string  $address  Address to geocode
+     * @param  string  $token  Public key to access the API.
+     * @param  string  $returnType  Type of Geometry to return. Can either be 'points' or 'bounds' (polygon)
+     * @param  Geometry|array[]|null  $bounds  Limit the search area to within this region. For example by default geocoding
+     *                                         "Cairo" will return the location of Cairo Egypt. If you pass a polygon of
+     *                                         illinois, it will return Cairo IL.
+     * @param  bool  $returnMultiple  Return all results in a multipoint or multipolygon
      * @return Geometry
      */
     public function read($address, string $token = '', string $returnType = 'point', $bounds = null, bool $returnMultiple = false)
@@ -108,8 +103,7 @@ class GoogleGeocode extends GeoAdapter
      *
      * @param  \Lyhty\Geometry\Types\Geometry  $geometry
      * @param  string  $token
-     * @param  bool  $asArray
-     * Should be either 'string' or 'array'
+     * @param  bool  $asArray  Should be either 'string' or 'array'
      * @return string|array
      */
     public function write(Geometry $geometry, string $token = '', $asArray = false)

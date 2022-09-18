@@ -19,7 +19,7 @@ use Lyhty\Geometry\Types\Polygon;
  */
 
 /**
- * PHP Geometry/GeoRSS encoder/decoder
+ * PHP Geometry/GeoRSS encoder/decoder.
  */
 class GeoRss extends GeoAdapter
 {
@@ -28,9 +28,9 @@ class GeoRss extends GeoAdapter
     private $nss = ''; // Name-space string. eg 'georss:'
 
     /**
-     * Read GeoRSS string into geometry objects
+     * Read GeoRSS string into geometry objects.
      *
-     * @param  string  $georss - an XML feed containing geoRSS
+     * @param  string  $georss  - an XML feed containing geoRSS
      * @return Geometry
      */
     public function read($gpx)

@@ -5,14 +5,14 @@ namespace Lyhty\Geometry\Adapters;
 use Lyhty\Geometry\Types\Geometry;
 
 /**
- * EWKB (Extended Well-Known Binary) Adapter
+ * EWKB (Extended Well-Known Binary) Adapter.
  */
 class _EWKB extends WKB
 {
     /**
-     * Read WKB binary string into geometry objects
+     * Read WKB binary string into geometry objects.
      *
-     * @param  string  $wkb An Extended-WKB binary string
+     * @param  string  $wkb  An Extended-WKB binary string
      * @return Geometry
      */
     public function read($wkb, $isHexString = false)

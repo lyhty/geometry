@@ -9,11 +9,11 @@ class Point extends Geometry implements SingleGeometryElement
     protected static string $geomType = 'Point';
 
     /**
-     * The Point constructor
+     * The Point constructor.
      *
-     * @param  float  $x The x coordinate (or longitude)
-     * @param  float  $y The y coordinate (or latitude)
-     * @param  float  $z The z coordinate (or altitude) [optional]
+     * @param  float  $x  The x coordinate (or longitude)
+     * @param  float  $y  The y coordinate (or latitude)
+     * @param  float  $z  The z coordinate (or altitude) [optional]
      */
     public function __construct(
         protected ?float $x = null,
@@ -23,7 +23,7 @@ class Point extends Geometry implements SingleGeometryElement
     }
 
     /**
-     * Get X (longitude) coordinate
+     * Get X (longitude) coordinate.
      *
      * @return float|null
      */
@@ -43,7 +43,7 @@ class Point extends Geometry implements SingleGeometryElement
     }
 
     /**
-     * Returns Y (latitude) coordinate
+     * Returns Y (latitude) coordinate.
      *
      * @return float|null
      */
@@ -63,7 +63,7 @@ class Point extends Geometry implements SingleGeometryElement
     }
 
     /**
-     * Returns Z (altitude) coordinate
+     * Returns Z (altitude) coordinate.
      *
      * @return float|null
      */

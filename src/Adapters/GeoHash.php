@@ -76,7 +76,7 @@ class GeoHash extends GeoAdapter
     /**
      * Convert the geohash to a Point. The point is 2-dimensional.
      *
-     * @param  string  $hash a geohash
+     * @param  string  $hash  a geohash
      * @return Geometry the converted geohash
      */
     public function read($hash, $asGrid = false)
@@ -195,7 +195,7 @@ class GeoHash extends GeoAdapter
     }
 
     /**
-     * @param  string  $hash a geohash
+     * @param  string  $hash  a geohash
      *
      * @author algorithm based on code by Alexander Songe <a@songe.me>
      *
@@ -293,8 +293,8 @@ class GeoHash extends GeoAdapter
      * @see https://github.com/sunng87/node-geohash
      * @see https://github.com/davidmoten/geo
      *
-     * @param  string  $hash the geohash (lowercase)
-     * @param  string  $direction the direction of the neighbor (top, bottom, left or right)
+     * @param  string  $hash  the geohash (lowercase)
+     * @param  string  $direction  the direction of the neighbor (top, bottom, left or right)
      * @return string the geohash of the adjacent cell
      */
     public function adjacent($hash, $direction)

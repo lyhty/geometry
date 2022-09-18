@@ -124,7 +124,7 @@ class Polygon extends HomogenousCollection implements SingleGeometryElement
     }
 
     /**
-     * Find the outermost point from the centroid
+     * Find the outermost point from the centroid.
      *
      * @returns Point The outermost point
      */
@@ -222,13 +222,13 @@ class Polygon extends HomogenousCollection implements SingleGeometryElement
 
     /**
      * For a given point, determine whether it's bounded by the given polygon.
-     * Adapted from http://www.assemblysys.com/dataServices/php_pointinpolygon.php
+     * Adapted from http://www.assemblysys.com/dataServices/php_pointinpolygon.php.
      *
      * @see http://en.wikipedia.org/wiki/Point%5Fin%5Fpolygon
      *
      * @param  Point  $point
-     * @param  bool  $pointOnBoundary - whether a boundary should be considered "in" or not
-     * @param  bool  $pointOnVertex - whether a vertex should be considered "in" or not
+     * @param  bool  $pointOnBoundary  Whether a boundary should be considered "in" or not
+     * @param  bool  $pointOnVertex  Whether a vertex should be considered "in" or not
      * @return bool
      */
     public function pointInPolygon($point, $pointOnBoundary = true, $pointOnVertex = true)

@@ -499,7 +499,7 @@ class Factory
      * Register a custom adapter extension.
      *
      * @param  string  $adapter
-     * @param  \Closure|string  $extension (or the `read` closure)
+     * @param  \Closure|string  $extension  (or the `read` closure)
      * @param  \Closure|null  $write
      * @param  string|null  $message
      * @return void

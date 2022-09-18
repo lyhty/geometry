@@ -14,14 +14,14 @@ use Lyhty\Geometry\Types\Point;
 use Lyhty\Geometry\Types\Polygon;
 
 /**
- * WKT (Well-Known Text) Adapter
+ * WKT (Well-Known Text) Adapter.
  */
 class Wkt extends GeoAdapter
 {
     /**
-     * Read WKT string into geometry objects
+     * Read WKT string into geometry objects.
      *
-     * @param  string  $WKT A WKT string
+     * @param  string  $WKT  A WKT string
      * @return Geometry
      */
     public function read($wkt)
@@ -234,7 +234,7 @@ class Wkt extends GeoAdapter
     }
 
     /**
-     * Trim the parenthesis and spaces
+     * Trim the parenthesis and spaces.
      */
     protected function trimParens($str)
     {
@@ -280,9 +280,9 @@ class Wkt extends GeoAdapter
     }
 
     /**
-     * Extract geometry to a WKT string
+     * Extract geometry to a WKT string.
      *
-     * @param  Geometry  $geometry A Geometry object
+     * @param  Geometry  $geometry  A Geometry object
      * @return string
      */
     public function extractData(Geometry $geometry)

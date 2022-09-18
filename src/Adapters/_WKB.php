@@ -22,7 +22,7 @@ use Lyhty\Geometry\Types\Polygon;
  */
 
 /**
- * PHP Geometry/WKB encoder/decoder
+ * PHP Geometry/WKB encoder/decoder.
  */
 class _WKB extends GeoAdapter
 {
@@ -33,12 +33,10 @@ class _WKB extends GeoAdapter
     private $m = false;
 
     /**
-     * Read WKB into geometry objects
+     * Read WKB into geometry objects.
      *
-     * @param  string  $wkb
-     *   Well-known-binary string
-     * @param  bool  $isHexString
-     *   If this is a hexedecimal string that is in need of packing
+     * @param  string  $wkb  Well-known-binary string
+     * @param  bool  $isHexString  If this is a hexedecimal string that is in need of packing
      * @return Geometry
      */
     public function read($wkb, $isHexString = false)

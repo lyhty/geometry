@@ -21,7 +21,7 @@ use Lyhty\Geometry\Types\Polygon;
  */
 
 /**
- * PHP Geometry/KML encoder/decoder
+ * PHP Geometry/KML encoder/decoder.
  *
  * Mainly inspired/adapted from OpenLayers( http://www.openlayers.org )
  * Openlayers/format/WKT.js
@@ -31,16 +31,16 @@ use Lyhty\Geometry\Types\Polygon;
 class Kml extends GeoAdapter
 {
     /**
-     * Namespace string. eg 'kml:'
+     * Namespace string. eg 'kml:'.
      *
      * @var string
      */
     protected $nss = '';
 
     /**
-     * Read KML string into geometry objects
+     * Read KML string into geometry objects.
      *
-     * @param  string  $kml A KML string
+     * @param  string  $kml  A KML string
      * @return Geometry
      */
     public function read($kml)
@@ -52,7 +52,7 @@ class Kml extends GeoAdapter
      * Serialize geometries into a KML string.
      *
      * @param  Geometry  $geometry
-     * @param  string  $namespace [optional]
+     * @param  string  $namespace  [optional]
      * @return string The KML string representation of the input geometries
      */
     public function write(Geometry $geometry, string $namespace = null)

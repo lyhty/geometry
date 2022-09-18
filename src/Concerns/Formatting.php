@@ -19,7 +19,7 @@ trait Formatting
     }
 
     /**
-     * Alias for `Geom::formatWkt($this)`
+     * Alias for `Geom::formatWkt($this)`.
      *
      * @return string
      */
@@ -29,7 +29,7 @@ trait Formatting
     }
 
     /**
-     * Alias for `static::toWKT()`
+     * Alias for `static::toWKT()`.
      *
      * @return string
      */
@@ -39,7 +39,7 @@ trait Formatting
     }
 
     /**
-     * Alias for `Geom::formatWkb($this, $asHex)`
+     * Alias for `Geom::formatWkb($this, $asHex)`.
      *
      * @param  bool  $asHex
      * @return string
@@ -75,7 +75,7 @@ trait Formatting
     }
 
     /**
-     * Alias for `static::format('geo_json')`
+     * Alias for `static::format('geo_json')`.
      *
      * @return string
      */

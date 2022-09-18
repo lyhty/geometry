@@ -55,7 +55,7 @@ trait HasGeometryAttributes
     }
 
     /**
-     * Undocumented function
+     * Get a new query builder instance for the connection.
      *
      * @return \Lyhty\Geometry\Query\Builder
      */
@@ -70,6 +70,12 @@ trait HasGeometryAttributes
         );
     }
 
+    /**
+     * Perform a model insert operation.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return bool
+     */
     protected function performInsert(EloquentBuilder $query, array $options = [])
     {
         foreach ($this->attributes as $key => $value) {
@@ -91,6 +97,13 @@ trait HasGeometryAttributes
         return $insert;
     }
 
+    /**
+     * Set the array of model attributes. No checking is done.
+     *
+     * @param  array  $attributes
+     * @param  bool  $sync
+     * @return $this
+     */
     public function setRawAttributes(array $attributes, $sync = false)
     {
         $geometryAttributes = $this->getGeometryColumns();
@@ -104,6 +117,11 @@ trait HasGeometryAttributes
         return parent::setRawAttributes($attributes, $sync);
     }
 
+    /**
+     * Get the geometry columns defined for the Model.
+     *
+     * @return array
+     */
     public function getGeometryColumns(): array
     {
         throw_unless(property_exists($this, 'geometryAttributes'), new GeometryAttributesNotDefinedException(sprintf(
@@ -113,6 +131,14 @@ trait HasGeometryAttributes
         return $this->geometryAttributes;
     }
 
+    /**
+     * Return boolean value whether the given column is a "geometry column".
+     *
+     * @param  string  $column
+     * @return true
+     *
+     * @throws \InvalidArgumentException
+     */
     public function isGeometryColumn($column): bool
     {
         return in_array($column, $this->getGeometryColumns())

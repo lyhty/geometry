@@ -23,9 +23,9 @@ abstract class Collection extends Geometry implements Countable, IteratorAggrega
     protected static int $minimumComponentCount;
 
     /**
-     * Constructor: Checks and sets component geometries
+     * Constructor: Checks and sets component geometries.
      *
-     * @param  array  $components array of geometries
+     * @param  array  $components  array of geometries
      */
     public function __construct(array $components = [])
     {

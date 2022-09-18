@@ -22,9 +22,9 @@ use Lyhty\Geometry\Types\Polygon;
 class GeoJson extends GeoAdapter
 {
     /**
-     * Given an object or a string, return a Geometry
+     * Given an object or a string, return a Geometry.
      *
-     * @param  mixed  $input The GeoJSON string or object
+     * @param  mixed  $input  The GeoJSON string or object
      * @return object Geometry
      */
     public function read($input)
@@ -137,7 +137,7 @@ class GeoJson extends GeoAdapter
     }
 
     /**
-     * Serializes an object into a geojson string
+     * Serializes an object into a geojson string.
      *
      * @param  \Lyhty\Geometry\Types\Geometry  $geometry
      * @param  bool  $returnArray
