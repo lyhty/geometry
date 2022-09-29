@@ -7,17 +7,17 @@ namespace Lyhty\Geometry;
  */
 final class GeosWrapper
 {
-    final protected const GEOS_EXTENSION_NAME = 'geos';
+    protected const GEOS_EXTENSION_NAME = 'geos';
 
-    final protected const GEOS_GEOMETRY_CLASS = 'GEOSGeometry';
+    protected const GEOS_GEOMETRY_CLASS = 'GEOSGeometry';
 
-    final protected const GEOS_WKB_WRITER_CLASS = 'GEOSWKBWriter';
+    protected const GEOS_WKB_WRITER_CLASS = 'GEOSWKBWriter';
 
-    final protected const GEOS_WKB_READER_CLASS = 'GEOSWKBReader';
+    protected const GEOS_WKB_READER_CLASS = 'GEOSWKBReader';
 
-    final protected const GEOS_WKT_WRITER_CLASS = 'GEOSWKTWriter';
+    protected const GEOS_WKT_WRITER_CLASS = 'GEOSWKTWriter';
 
-    final protected const GEOS_WKT_READER_CLASS = 'GEOSWKTReader';
+    protected const GEOS_WKT_READER_CLASS = 'GEOSWKTReader';
 
     /**
      * Return boolean value whether geos is installed.
