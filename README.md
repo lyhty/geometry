@@ -16,8 +16,8 @@ This package provides tools to parse and write various formats of Geometry data,
 to extend it with custom adapters.
 
 The package is greatly inspired by and many things are borrowed from the following packages:
-[phayes/geoPHP](https://github.com/phayes/geoPHP) by [@phayes](https://github.com/phayes) and
-[grimzy/laravel-mysql-spatial](https://github.com/grimzy/laravel-mysql-spatial) by [@grimzy](https://github.com/grimzy).
+[geoPHP](https://github.com/phayes/geoPHP) by [@phayes](https://github.com/phayes) and
+[laravel-mysql-spatial](https://github.com/grimzy/laravel-mysql-spatial) by [@grimzy](https://github.com/grimzy).
 
 The package also provides a Model trait, that adds the OGC standard spatial functions to the Model and
 its Query builder.
