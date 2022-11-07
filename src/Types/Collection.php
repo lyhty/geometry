@@ -309,7 +309,6 @@ abstract class Collection extends Geometry implements Countable, IteratorAggrega
     public function equals(Geometry $geometry): bool
     {
         return $this->tryForwardCallToGeos(__FUNCTION__, $geometry, function ($geometry) {
-
             // To test for equality we check to make sure that there is a matching point
             // in the other geometry for every point in this geometry.
             // This is slightly more strict than the standard, which

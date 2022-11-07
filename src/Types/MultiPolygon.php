@@ -2,13 +2,13 @@
 
 namespace Lyhty\Geometry\Types;
 
-use Lyhty\Geometry\Contracts\MultiGeometryElement;
+use Lyhty\Geometry\Contracts\MultiCollection;
 
 /**
  * @method \Lyhty\Geometry\Types\Polygon[] getPolygons()
  * @method \Lyhty\Geometry\Types\Polygon[] getComponents()
  */
-class MultiPolygon extends HomogenousCollection implements MultiGeometryElement
+class MultiPolygon extends HomogenousCollection implements MultiCollection
 {
     /**
      * @var Polygon[]

@@ -2,7 +2,7 @@
 
 namespace Lyhty\Geometry\Contracts;
 
-interface SingleGeometryElement
+interface SimpleCollection
 {
     //
 }

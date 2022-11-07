@@ -10,10 +10,14 @@ use Illuminate\Support\Traits\ForwardsCalls;
 use JsonSerializable;
 use Lyhty\Geometry\Adapters\AnonymousGeoAdapter;
 use Lyhty\Geometry\Adapters\GeoAdapter;
-use Lyhty\Geometry\Contracts\MultiGeometryElement;
-use Lyhty\Geometry\Contracts\SingleGeometryElement;
+use Lyhty\Geometry\Contracts\MultiCollection;
+use Lyhty\Geometry\Contracts\SimpleCollection;
+use Lyhty\Geometry\Types\Collection;
 use Lyhty\Geometry\Types\Geometry;
 use Lyhty\Geometry\Types\GeometryCollection;
+use Lyhty\Geometry\Types\LineString;
+use Lyhty\Geometry\Types\MultiPoint;
+use Lyhty\Geometry\Types\Point;
 use RuntimeException;
 use TypeError;
 
@@ -240,13 +244,13 @@ class Factory
 
         if ($geometry instanceof Geometry) {
             // If the geometry cannot even theoretically be reduced more, then pass it back
-            if ($geometry instanceof SingleGeometryElement) {
+            if ($geometry instanceof SimpleCollection) {
                 return $geometry;
             }
 
             // If it is a multi-geometry, check to see if it just has one member
             // If it does, then pass the member, if not, then just pass back the geometry
-            if ($geometry instanceof MultiGeometryElement) {
+            elseif ($geometry instanceof MultiCollection) {
                 return count($components = $geometry->getComponents()) === 1
                     ? $components[0]
                     : $geometry;
@@ -263,7 +267,7 @@ class Factory
                 continue;
             }
 
-            if (! $item instanceof SingleGeometryElement) {
+            if ($item instanceof MultiCollection || $item instanceof GeometryCollection) {
                 foreach ($item->getComponents() as $component) {
                     $geometries[] = $component;
                 }

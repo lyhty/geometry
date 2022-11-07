@@ -3,9 +3,9 @@
 namespace Lyhty\Geometry\Adapters;
 
 use Exception;
-use Lyhty\Geometry\Contracts\MultiGeometryElement;
 use Lyhty\Geometry\Types\Geometry;
 use Lyhty\Geometry\Types\GeometryCollection;
+use Lyhty\Geometry\Types\HomogenousCollection;
 use Lyhty\Geometry\Types\LineString;
 use Lyhty\Geometry\Types\MultiLineString;
 use Lyhty\Geometry\Types\MultiPoint;
@@ -260,7 +260,7 @@ class _WKB extends GeoAdapter
         return $wkb;
     }
 
-    public function writeMulti(MultiGeometryElement $geometry)
+    public function writeMulti(HomogenousCollection $geometry)
     {
         // Set the number of components
         $wkb = pack('L', $geometry->numGeometries());

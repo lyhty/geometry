@@ -2,9 +2,9 @@
 
 namespace Lyhty\Geometry\Types;
 
-use Lyhty\Geometry\Contracts\SingleGeometryElement;
+use Lyhty\Geometry\Contracts\SimpleCollection;
 
-class Point extends Geometry implements SingleGeometryElement
+class Point extends Geometry implements SimpleCollection
 {
     protected static string $geomType = 'Point';
 

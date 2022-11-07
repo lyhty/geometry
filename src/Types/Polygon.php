@@ -2,14 +2,14 @@
 
 namespace Lyhty\Geometry\Types;
 
-use Lyhty\Geometry\Contracts\SingleGeometryElement;
+use Lyhty\Geometry\Contracts\SimpleCollection;
 use Lyhty\Geometry\Exceptions\GeosNotInstalledException;
 
 /**
  * @method \Lyhty\Geometry\Types\LineString[] getLineStrings()
  * @method \Lyhty\Geometry\Types\LineString[] getComponents()
  */
-class Polygon extends HomogenousCollection implements SingleGeometryElement
+class Polygon extends HomogenousCollection implements SimpleCollection
 {
     /**
      * @var LineString[]

@@ -2,10 +2,9 @@
 
 namespace Lyhty\Geometry\Adapters;
 
-use Lyhty\Geometry\Contracts\MultiGeometryElement;
-use Lyhty\Geometry\Contracts\SingleGeometryElement;
 use Lyhty\Geometry\Types\Geometry;
 use Lyhty\Geometry\Types\GeometryCollection;
+use Lyhty\Geometry\Types\HomogenousCollection;
 use Lyhty\Geometry\Types\LineString;
 use Lyhty\Geometry\Types\MultiLineString;
 use Lyhty\Geometry\Types\MultiPoint;
@@ -287,32 +286,41 @@ class Wkt extends GeoAdapter
      */
     public function extractData(Geometry $geometry)
     {
-        if ($geometry instanceof Point) {
-            return $geometry->getX().' '.$geometry->getY();
-        }
+        $func = match ($geometry->geometryType()) {
+            'Point' => function (Point $geometry) {
+                return $geometry->getX().' '.$geometry->getY();
+            },
+            'LineString' => function (LineString $geometry) {
+                $parts = [];
 
-        $parts = [];
+                foreach ($geometry->getComponents() as $component) {
+                    $parts[] = $this->extractData($component);
+                }
 
-        if ($geometry instanceof SingleGeometryElement) {
-            foreach ($geometry->getComponents() as $component) {
-                $parts[] = $this->extractData($component);
+                return $parts;
+            },
+            'Polygon', 'MultiPoint', 'MultiLineString', 'MultiPolygon' => function (HomogenousCollection $geometry) {
+                $parts = [];
+
+                foreach ($geometry->getComponents() as $component) {
+                    $parts[] = '('.$this->extractData($component).')';
+                }
+
+                return $parts;
+            },
+            'GeometryCollection' => function (GeometryCollection $geometry) {
+                $parts = [];
+
+                foreach ($geometry->getComponents() as $component) {
+                    $parts[] = strtoupper($component->geometryType()).' ('.$this->extractData($component).')';
+                }
+
+                return $parts;
             }
+        };
 
-            return implode(', ', $parts);
-        }
-
-        if ($geometry instanceof MultiGeometryElement) {
-            foreach ($geometry->getComponents() as $component) {
-                $parts[] = '('.$this->extractData($component).')';
-            }
-
-            return implode(', ', $parts);
-        }
-
-        foreach ($geometry->getComponents() as $component) {
-            $parts[] = strtoupper($component->geometryType()).' ('.$this->extractData($component).')';
-        }
-
-        return implode(', ', $parts);
+        return is_array($result = $func($geometry))
+            ? implode(', ', $result)
+            : $result;
     }
 }

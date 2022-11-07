@@ -2,13 +2,13 @@
 
 namespace Lyhty\Geometry\Types;
 
-use Lyhty\Geometry\Contracts\MultiGeometryElement;
+use Lyhty\Geometry\Contracts\MultiCollection;
 
 /**
  * @method \Lyhty\Geometry\Types\Point[] getComponents()
  * @method \Lyhty\Geometry\Types\Point[] getPoints()
  */
-class MultiPoint extends HomogenousCollection implements MultiGeometryElement
+class MultiPoint extends HomogenousCollection implements MultiCollection
 {
     /**
      * @var Point[]

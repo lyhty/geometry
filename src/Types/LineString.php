@@ -2,13 +2,13 @@
 
 namespace Lyhty\Geometry\Types;
 
-use Lyhty\Geometry\Contracts\SingleGeometryElement;
+use Lyhty\Geometry\Contracts\SimpleCollection;
 
 /**
  * @method \Lyhty\Geometry\Types\Point[] getComponents()
  * @method \Lyhty\Geometry\Types\Point[] getPoints()
  */
-class LineString extends HomogenousCollection implements SingleGeometryElement
+class LineString extends HomogenousCollection implements SimpleCollection
 {
     /**
      * @var Point[]

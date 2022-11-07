@@ -2,13 +2,13 @@
 
 namespace Lyhty\Geometry\Types;
 
-use Lyhty\Geometry\Contracts\MultiGeometryElement;
+use Lyhty\Geometry\Contracts\MultiCollection;
 
 /**
  * @method \Lyhty\Geometry\Types\LineString[] getLineStrings()
  * @method \Lyhty\Geometry\Types\LineString[] getComponents()
  */
-class MultiLineString extends HomogenousCollection implements MultiGeometryElement
+class MultiLineString extends HomogenousCollection implements MultiCollection
 {
     /**
      * @var LineString[]
