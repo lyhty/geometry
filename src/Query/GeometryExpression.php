@@ -4,6 +4,7 @@ namespace Lyhty\Geometry\Query;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
+use Illuminate\Database\Grammar;
 use Illuminate\Database\Query\Expression;
 use Illuminate\Support\Traits\ForwardsCalls;
 use JsonSerializable;
@@ -17,7 +18,7 @@ class GeometryExpression extends Expression implements JsonSerializable, Arrayab
 {
     use ForwardsCalls;
 
-    public function getValue()
+    public function getValue(Grammar $grammar)
     {
         return "ST_GeomFromText(?, ?, 'axis-order=long-lat')";
     }
