@@ -29,8 +29,6 @@ class GeometryCollection extends Collection
      * because, for example, there would be no way to tell the difference between a
      * MultiPoint or a LineString, since they share the same structure (collection
      * of points). So we need to call out the type explicitly.
-     *
-     * @return array
      */
     public function toGeoJsonArray(): array
     {

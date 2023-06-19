@@ -12,7 +12,6 @@ class Ewkt extends Wkt
     /**
      * Serialize geometries into an EWKT string.
      *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
      * @return string The Extended-WKT string representation of the input geometries
      */
     public function write(Geometry $geometry)

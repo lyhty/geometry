@@ -25,9 +25,6 @@ class Ewkb extends Wkb
     /**
      * Serialize geometries into an EWKB binary string.
      *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @param  bool  $writeAsHex
-     * @param  array  $options
      * @return string The Extended-WKB binary string representation of the input geometries
      */
     public function write(Geometry $geometry, bool $writeAsHex = false, array $options = [])

@@ -41,7 +41,6 @@ class GeoRss extends GeoAdapter
     /**
      * Serialize geometries into a GeoRSS string.
      *
-     * @param  Geometry  $geometry
      * @return string The georss string representation of the input geometries
      */
     public function write(Geometry $geometry, $namespace = false)

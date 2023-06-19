@@ -14,8 +14,6 @@ trait Operations
     /**
      * The area of this Polygon (or GeometryCollection), as measured in the spatial
      * reference system of the geometry.
-     *
-     * @return float
      */
     public function area(): float
     {
@@ -30,9 +28,6 @@ trait Operations
      * this distance, but it should be near the resolution of the coordinates used.
      *
      * @uses geos
-     *
-     * @param  float  $distance
-     * @return \Lyhty\Geometry\Types\Geometry
      */
     public function buffer(float $distance): Geometry
     {
@@ -41,8 +36,6 @@ trait Operations
 
     /**
      * @uses geos
-     *
-     * @return bool
      */
     public function checkValidity(): bool
     {
@@ -55,8 +48,6 @@ trait Operations
      * @see http://en.wikipedia.org/wiki/Convex_hull
      *
      * @uses geos
-     *
-     * @return \Lyhty\Geometry\Types\Geometry
      */
     public function convexHull(): Geometry
     {
@@ -68,9 +59,6 @@ trait Operations
      * geometric object with the given geometry.
      *
      * @uses geos
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return \Lyhty\Geometry\Types\Geometry
      */
     public function difference(Geometry $geometry): Geometry
     {
@@ -85,9 +73,6 @@ trait Operations
      * is the returned distance between their geometric objects.
      *
      * @uses geos
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return float
      */
     public function distance(Geometry $geometry): float
     {
@@ -98,8 +83,6 @@ trait Operations
      * The minimum bounding box for this Geometry, returned as a Geometry.
      *
      * @uses geos
-     *
-     * @return \Lyhty\Geometry\Types\Polygon
      */
     public function envelope(): Polygon
     {
@@ -129,8 +112,6 @@ trait Operations
 
     /**
      * @see https://en.wikipedia.org/wiki/Great-circle_distance
-     *
-     * @return float
      */
     public function greatCircleLength(): float
     {
@@ -141,9 +122,6 @@ trait Operations
      * @see http://en.wikipedia.org/wiki/Hausdorff_distance
      *
      * @uses geos
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return float
      */
     public function hausdorffDistance(Geometry $geometry): float
     {
@@ -152,8 +130,6 @@ trait Operations
 
     /**
      * @see https://en.wikipedia.org/wiki/Haversine_formula
-     *
-     * @return float
      */
     public function haversineLength(): float
     {
@@ -167,9 +143,6 @@ trait Operations
      * @see http://en.wikipedia.org/wiki/Intersection_(set_theory)
      *
      * @uses geos
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return \Lyhty\Geometry\Types\Geometry
      */
     public function intersection(Geometry $geometry): Geometry
     {
@@ -178,8 +151,6 @@ trait Operations
 
     /**
      * Get the length of the geometry in its associated spatial reference.
-     *
-     * @return float
      */
     public function length(): float
     {
@@ -192,7 +163,6 @@ trait Operations
      *
      * @uses geos
      *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
      * @param  mixed  $pattern
      * @return void
      */
@@ -207,10 +177,6 @@ trait Operations
      * Simplify the geometry using the standard Douglas-Peucker algorithm.
      *
      * @uses geos
-     *
-     * @param  float  $tolerance
-     * @param  bool  $preserveTopology
-     * @return \Lyhty\Geometry\Types\Geometry
      */
     public function simplify(float $tolerance, bool $preserveTopology = false): Geometry
     {
@@ -224,9 +190,6 @@ trait Operations
      * @see http://en.wikipedia.org/wiki/Symmetric_difference
      *
      * @uses geos
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return \Lyhty\Geometry\Types\Geometry
      */
     public function symDifference(Geometry $geometry): Geometry
     {

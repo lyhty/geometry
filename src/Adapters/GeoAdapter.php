@@ -23,8 +23,6 @@ abstract class GeoAdapter
 
     /**
      * The GeoAdapter constructor.
-     *
-     * @param  \Lyhty\Geometry\Factory  $factory
      */
     public function __construct(Factory $factory)
     {

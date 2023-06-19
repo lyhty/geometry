@@ -10,9 +10,6 @@ trait Predicates
      * Return boolean value whether the geometry contains with the given geometry.
      *
      * @uses geos
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return bool
      */
     public function contains(Geometry $geometry): bool
     {
@@ -23,9 +20,6 @@ trait Predicates
      * Return boolean value whether the geometry covers the given geometry.
      *
      * @uses geos
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return bool
      */
     public function covers(Geometry $geometry): bool
     {
@@ -36,9 +30,6 @@ trait Predicates
      * Return boolean value whether the geometry is covered by the given geometry.
      *
      * @uses geos
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return bool
      */
     public function coveredBy(Geometry $geometry): bool
     {
@@ -49,9 +40,6 @@ trait Predicates
      * Return boolean value whether the geometry crosses with the given geometry.
      *
      * @uses geos
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return bool
      */
     public function crosses(Geometry $geometry): bool
     {
@@ -62,9 +50,6 @@ trait Predicates
      * Return boolean value whether the geometry disjoint with the given geometry.
      *
      * @uses geos
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return bool
      */
     public function disjoint(Geometry $geometry): bool
     {
@@ -74,9 +59,6 @@ trait Predicates
     /**
      * Return boolean value whether the geometry is “spatially equal” to
      * the given Geometry.
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return bool
      */
     abstract public function equals(Geometry $geometry): bool;
 
@@ -85,9 +67,6 @@ trait Predicates
      * another object, including the ordering of component parts.
      *
      * @uses geos
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return bool
      */
     public function equalsExact(Geometry $geometry): bool
     {
@@ -98,9 +77,6 @@ trait Predicates
      * Return boolean value whether the geometry intersects with the given geometry.
      *
      * @uses geos
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return bool
      */
     public function intersects(Geometry $geometry): bool
     {
@@ -111,9 +87,6 @@ trait Predicates
      * Return boolean value whether the geometry overlaps with the given geometry.
      *
      * @uses geos
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return bool
      */
     public function overlaps(Geometry $geometry): bool
     {
@@ -124,9 +97,6 @@ trait Predicates
      * Return boolean value whether the geometry touches with the given geometry.
      *
      * @uses geos
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return bool
      */
     public function touches(Geometry $geometry): bool
     {
@@ -137,9 +107,6 @@ trait Predicates
      * Return boolean value whether the geometry is within the given geometry.
      *
      * @uses geos
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return bool
      */
     public function within(Geometry $geometry): bool
     {

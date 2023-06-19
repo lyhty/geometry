@@ -21,8 +21,6 @@ final class GeosWrapper
 
     /**
      * Return boolean value whether geos is installed.
-     *
-     * @return bool
      */
     public function geosInstalled(): bool
     {
@@ -31,8 +29,6 @@ final class GeosWrapper
 
     /**
      * Create an instance of GEOSGeometry.
-     *
-     * @return object
      */
     public function makeGeometry(): object
     {
@@ -41,8 +37,6 @@ final class GeosWrapper
 
     /**
      * Create an instance of GEOSWKTWriter.
-     *
-     * @return object
      */
     public function makeWKTWriter(): object
     {
@@ -51,8 +45,6 @@ final class GeosWrapper
 
     /**
      * Create an instance of GEOSWKTReader.
-     *
-     * @return object
      */
     public function makeWKTReader(): object
     {
@@ -61,8 +53,6 @@ final class GeosWrapper
 
     /**
      * Create an instance of GEOSWKBWriter.
-     *
-     * @return object
      */
     public function makeWKBWriter(): object
     {
@@ -71,8 +61,6 @@ final class GeosWrapper
 
     /**
      * Create an instance of GEOSWKBReader.
-     *
-     * @return object
      */
     public function makeWKBReader(): object
     {
@@ -83,7 +71,6 @@ final class GeosWrapper
      * Return boolean value whether the given value is a geos instance.
      *
      * @param  mixed  $value
-     * @return bool
      */
     public function isGeos($value): bool
     {

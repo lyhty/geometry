@@ -71,8 +71,6 @@ abstract class Collection extends Geometry implements Countable, IteratorAggrega
 
     /**
      * Attempt to reduce the current collection.
-     *
-     * @return Geometry|null
      */
     public function reduce(): ?Geometry
     {
@@ -164,8 +162,6 @@ abstract class Collection extends Geometry implements Countable, IteratorAggrega
 
     /**
      * Return the count of geometries within the Geometry.
-     *
-     * @return int
      */
     public function numGeometries(): int
     {
@@ -384,8 +380,6 @@ abstract class Collection extends Geometry implements Countable, IteratorAggrega
      * case, the projection factor will lie outside the range [0.0, 1.0].
      *
      * @param  \Lyhty\Geometry\Types\Point  $point
-     * @param  bool  $normalized
-     * @return float
      */
     public function project(Point $point, bool $normalized = false): float
     {
@@ -394,8 +388,6 @@ abstract class Collection extends Geometry implements Countable, IteratorAggrega
 
     /**
      * Checks whether the items are valid to create this collection.
-     *
-     * @param  array  $items
      */
     protected static function validateItems(array $items)
     {
@@ -409,7 +401,6 @@ abstract class Collection extends Geometry implements Countable, IteratorAggrega
     /**
      * Checks whether the array has enough items to generate a valid WKT.
      *
-     * @param  array  $items
      *
      * @see static::$minimumComponentCount
      */
@@ -430,7 +421,6 @@ abstract class Collection extends Geometry implements Countable, IteratorAggrega
     /**
      * Checks the type of the items in the array.
      *
-     * @param $item
      *
      * @see static::$collectionComponentClass
      */

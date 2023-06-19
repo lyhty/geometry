@@ -103,10 +103,7 @@ class Factory
      * the data, the second one is the format of the data. All additional arguments
      * are passed along to the read method of the relevant adapter.
      *
-     * @param  mixed  $data
-     * @param  string|null  $type
      * @param  mixed[]  ...$otherArgs
-     * @return \Lyhty\Geometry\Types\Geometry|null
      */
     public function parse(mixed $data, ?string $type = null, ...$otherArgs): ?Geometry
     {
@@ -155,8 +152,6 @@ class Factory
     /**
      * Outputs the geometry into the specified adapter format.
      *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @param  string  $format
      * @param  mixed[]  ...$otherArgs
      * @return string
      */
@@ -167,9 +162,6 @@ class Factory
 
     /**
      * Wrap the given geometry instances to corresponding collection type.
-     *
-     * @param  array|\Lyhty\Geometry\Types\Geometry  $geometries
-     * @return \Lyhty\Geometry\Types\Geometry|null
      */
     public function wrap(array|Geometry $geometries): ?Geometry
     {
@@ -197,7 +189,6 @@ class Factory
      * Convert geos geometry to native geometry.
      *
      * @param  \GEOSGeometry&GeosGeometryWrapper  $geos
-     * @return \Lyhty\Geometry\Types\Geometry|null
      */
     public function geosToGeometry($geos): ?Geometry
     {
@@ -227,7 +218,6 @@ class Factory
      * geometry.
      *
      * @param  \Lyhty\Geometry\Types\Geometry|\Lyhty\Geometry\Types\Geometry[]  $geometry
-     * @return \Lyhty\Geometry\Types\Geometry|null
      */
     public function reduce(Geometry|array $geometry): ?Geometry
     {
@@ -285,7 +275,6 @@ class Factory
      * ways (ie, KML inside an RSS feed).
      *
      * @param  mixed  &$input
-     * @return string|null
      */
     public function detectFormat(&$input): ?string
     {
@@ -405,8 +394,6 @@ class Factory
 
     /**
      * Get the list of geometry classes mapped with their geometry type set as key.
-     *
-     * @return array
      */
     public function geometryList(): array
     {
@@ -420,8 +407,6 @@ class Factory
 
     /**
      * Get the list of geometry types with the key being the type lowercased.
-     *
-     * @return array
      */
     public function lcGeometryList(): array
     {
@@ -433,8 +418,6 @@ class Factory
 
     /**
      * Get the list of adapters with the class name set as the key.
-     *
-     * @return array
      */
     public function adapters(): array
     {
@@ -449,8 +432,6 @@ class Factory
     /**
      * Make an adapter of given type.
      *
-     * @param  string  $type
-     * @return \Lyhty\Geometry\Adapters\GeoAdapter
      *
      * @throws \RuntimeException
      */
@@ -470,7 +451,6 @@ class Factory
     /**
      * Make an adapter instance from an extension adapter.
      *
-     * @param  string  $type
      * @return void
      */
     protected function makeExtensionAdapter(string $type)
@@ -486,9 +466,6 @@ class Factory
 
     /**
      * Make a closure based extension adapter.
-     *
-     * @param  string  $type
-     * @return \Lyhty\Geometry\Adapters\AnonymousGeoAdapter|null
      */
     protected function makeClosureExtensionAdapter(string $type): ?AnonymousGeoAdapter
     {
@@ -504,9 +481,7 @@ class Factory
      *
      * @param  string  $adapter
      * @param  \Closure|string  $extension  (or the `read` closure)
-     * @param  \Closure|null  $write
      * @param  string|null  $message
-     * @return void
      */
     public function extend($adapter, $extension, Closure $write = null): void
     {

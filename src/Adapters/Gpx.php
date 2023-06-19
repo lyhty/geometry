@@ -40,7 +40,6 @@ class Gpx extends GeoAdapter
     /**
      * Serialize geometries into a GPX string.
      *
-     * @param  Geometry  $geometry
      * @return string The GPX string representation of the input geometries
      */
     public function write(Geometry $geometry, $namespace = false)

@@ -53,8 +53,6 @@ class LineString extends HomogenousCollection implements SimpleCollection
 
     /**
      * Return boolean value whether the LineString is closed.
-     *
-     * @return bool
      */
     public function isClosed(): bool
     {
@@ -63,8 +61,6 @@ class LineString extends HomogenousCollection implements SimpleCollection
 
     /**
      * Return boolean value whether the LineString is a ring (closed and simple).
-     *
-     * @return bool
      */
     public function isRing(): bool
     {
@@ -73,8 +69,6 @@ class LineString extends HomogenousCollection implements SimpleCollection
 
     /**
      * The number of points in the geometry.
-     *
-     * @return int
      */
     public function numPoints(): int
     {
@@ -84,7 +78,6 @@ class LineString extends HomogenousCollection implements SimpleCollection
     /**
      * Return the N point of the LineString.
      *
-     * @param  int  $n
      * @return \Lyhty\Geometry\Types\Point|null
      */
     public function pointN(int $n): ?Point

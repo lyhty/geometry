@@ -174,7 +174,6 @@ class _WKB extends GeoAdapter
     /**
      * Serialize geometries into WKB string.
      *
-     * @param  Geometry  $geometry
      * @return string The WKB string representation of the input geometries
      */
     public function write(Geometry $geometry, $writeAsHex = false)

@@ -24,8 +24,6 @@ class Point extends Geometry implements SimpleCollection
 
     /**
      * Get X (longitude) coordinate.
-     *
-     * @return float|null
      */
     public function getX(): ?float
     {
@@ -34,8 +32,6 @@ class Point extends Geometry implements SimpleCollection
 
     /**
      * Alias for `static::getX()`.
-     *
-     * @return float|null
      */
     public function getLng(): ?float
     {
@@ -44,8 +40,6 @@ class Point extends Geometry implements SimpleCollection
 
     /**
      * Returns Y (latitude) coordinate.
-     *
-     * @return float|null
      */
     public function getY(): ?float
     {
@@ -54,8 +48,6 @@ class Point extends Geometry implements SimpleCollection
 
     /**
      * Alias for `static::getY()`.
-     *
-     * @return float|null
      */
     public function getLat(): ?float
     {
@@ -64,8 +56,6 @@ class Point extends Geometry implements SimpleCollection
 
     /**
      * Returns Z (altitude) coordinate.
-     *
-     * @return float|null
      */
     public function getZ(): ?float
     {
@@ -74,8 +64,6 @@ class Point extends Geometry implements SimpleCollection
 
     /**
      * Alias for `static::getZ()`.
-     *
-     * @return float|null
      */
     public function getAlt(): ?float
     {
@@ -105,8 +93,6 @@ class Point extends Geometry implements SimpleCollection
 
     /**
      * Return the coordinates of the Point.
-     *
-     * @return array
      */
     public function getCoordinates(): array
     {

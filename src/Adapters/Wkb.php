@@ -54,7 +54,6 @@ class Wkb extends GeoAdapter implements Factory, Extractor
     /**
      * Serialize geometries into WKB string.
      *
-     * @param  Geometry  $geometry
      * @param  array  $options  [optional]
      * @return string The WKB string representation of the input geometries
      */
@@ -141,7 +140,6 @@ class Wkb extends GeoAdapter implements Factory, Extractor
     // Write Generator Extractor Methods
 
     /**
-     * @param $geometry
      * @return bool
      */
     public function supports($geometry)

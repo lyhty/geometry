@@ -9,9 +9,7 @@ trait Formatting
     /**
      * Outputs the geometry into the specified adapter format.
      *
-     * @param  string  $format
      * @param  mixed[]  ...$args
-     * @return mixed
      */
     public function format(string $format, ...$args): mixed
     {
@@ -20,8 +18,6 @@ trait Formatting
 
     /**
      * Alias for `Geom::formatWkt($this)`.
-     *
-     * @return string
      */
     public function toWKT(): string
     {
@@ -30,8 +26,6 @@ trait Formatting
 
     /**
      * Alias for `static::toWKT()`.
-     *
-     * @return string
      */
     public function toText(): string
     {
@@ -40,9 +34,6 @@ trait Formatting
 
     /**
      * Alias for `Geom::formatWkb($this, $asHex)`.
-     *
-     * @param  bool  $asHex
-     * @return string
      */
     public function toBinary(bool $asHex = false): string
     {
@@ -51,15 +42,11 @@ trait Formatting
 
     /**
      * Get the geojson data key name.
-     *
-     * @return string
      */
     abstract public function getGeoJsonDataKey(): string;
 
     /**
      * Get the given geometry as an array of geojson components (recursive).
-     *
-     * @return array
      */
     abstract public function toGeoJsonArray(): array;
 

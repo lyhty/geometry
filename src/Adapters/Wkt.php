@@ -258,7 +258,6 @@ class Wkt extends GeoAdapter
     /**
      * Serialize geometries into a WKT string.
      *
-     * @param  Geometry  $geometry
      * @return string The WKT string representation of the input geometries
      */
     public function write(Geometry $geometry)

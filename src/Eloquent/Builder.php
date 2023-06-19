@@ -38,9 +38,6 @@ class Builder extends EloquentBuilder
 
     /**
      * Wrap the geometry inside an expression.
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @return \Lyhty\Geometry\Query\GeometryExpression
      */
     protected function asWKT(Geometry $geometry): GeometryExpression
     {

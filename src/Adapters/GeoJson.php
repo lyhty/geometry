@@ -2,7 +2,7 @@
 
 namespace Lyhty\Geometry\Adapters;
 
-use Exception;
+use Lyhty\Geometry\Exceptions\InvalidGeoJsonException;
 use Lyhty\Geometry\Types\Geometry;
 use Lyhty\Geometry\Types\GeometryCollection;
 use Lyhty\Geometry\Types\LineString;
@@ -33,7 +33,7 @@ class GeoJson extends GeoAdapter
             $input = json_decode($input);
         }
         if (! is_object($input) || ! is_string($input->type)) {
-            throw new Exception('Invalid JSON');
+            throw InvalidGeoJsonException::invalidJson();
         }
 
         // Check to see if it's a FeatureCollection
@@ -59,9 +59,15 @@ class GeoJson extends GeoAdapter
     {
         $type = $obj->type;
 
-        return $type === GeometryCollection::geometryType()
-            ? $this->objToGeometryCollection($obj)
-            : $this->{'arrayTo'.$type}($obj->coordinates);
+        if ($type === GeometryCollection::geometryType()) {
+            return $this->objToGeometryCollection($obj);
+        }
+
+        if (method_exists($this, $method = 'arrayTo'.$type)) {
+            return $this->{$method}($obj->coordinates);
+        }
+
+        throw InvalidGeoJsonException::unsupportedType($type);
     }
 
     private function arrayToPoint($array)
@@ -127,7 +133,7 @@ class GeoJson extends GeoAdapter
     {
         $geoms = [];
         if (empty($obj->geometries)) {
-            throw new Exception('Invalid GeoJSON: GeometryCollection with no component geometries');
+            throw InvalidGeoJsonException::emptyGeometryCollection();
         }
         foreach ($obj->geometries as $compObject) {
             $geoms[] = $this->objToGeom($compObject);
@@ -138,10 +144,6 @@ class GeoJson extends GeoAdapter
 
     /**
      * Serializes an object into a geojson string.
-     *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @param  bool  $returnArray
-     * @return string|array
      */
     public function write(Geometry $geometry, bool $returnArray = false): string|array
     {

@@ -37,7 +37,6 @@ trait InteractsWithGeos
      * Set a GEOSGeometry object representing this geometry.
      *
      * @param  \GEOSGeometry  $geos
-     * @return void
      */
     public function setGeos($geos): void
     {

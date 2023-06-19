@@ -101,8 +101,6 @@ class GoogleGeocode extends GeoAdapter
     /**
      * Writes the geometry into a Google formatted string or an array of address components.
      *
-     * @param  \Lyhty\Geometry\Types\Geometry  $geometry
-     * @param  string  $token
      * @param  bool  $asArray  Should be either 'string' or 'array'
      * @return string|array
      */

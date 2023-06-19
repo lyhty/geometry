@@ -73,7 +73,6 @@ trait HasGeometryAttributes
     /**
      * Perform a model insert operation.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return bool
      */
     protected function performInsert(EloquentBuilder $query, array $options = [])
@@ -100,7 +99,6 @@ trait HasGeometryAttributes
     /**
      * Set the array of model attributes. No checking is done.
      *
-     * @param  array  $attributes
      * @param  bool  $sync
      * @return $this
      */
@@ -119,8 +117,6 @@ trait HasGeometryAttributes
 
     /**
      * Get the geometry columns defined for the Model.
-     *
-     * @return array
      */
     public function getGeometryColumns(): array
     {

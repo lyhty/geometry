@@ -26,8 +26,6 @@ abstract class Geometry implements Jsonable, Arrayable, JsonSerializable
      * Returns the name of the instantiable subtype of Geometry of which this
      * geometric object is an instantiable member. The name of the subtype of
      * Geometry is returned as a string.
-     *
-     * @return string
      */
     public static function geometryType(): string
     {
@@ -66,23 +64,17 @@ abstract class Geometry implements Jsonable, Arrayable, JsonSerializable
 
     /**
      * The number of points in the geometry.
-     *
-     * @return int
      */
     abstract public function numPoints(): int;
 
     /**
      * Return boolean value whether the geometry is empty.
-     *
-     * @return bool
      */
     abstract public function isEmpty(): bool;
 
     /**
      * Return boolean value whether the geometry does not pass through the
      * same point in space more than once.
-     *
-     * @return bool
      */
     abstract public function isSimple(): bool;
 
@@ -102,22 +94,16 @@ abstract class Geometry implements Jsonable, Arrayable, JsonSerializable
 
     /**
      * Explode the geometry into an array of LineString instances.
-     *
-     * @return array|null
      */
     abstract public function explode(): ?array;
 
     /**
      * Get the dimensions of the geometry.
-     *
-     * @return int
      */
     abstract public function dimension(): int;
 
     /**
      * Returns the Spatial Reference System ID for this geometric object.
-     *
-     * @return int
      */
     public function SRID(): int
     {
@@ -128,9 +114,6 @@ abstract class Geometry implements Jsonable, Arrayable, JsonSerializable
      * Set the Spatial Reference System ID for this geometric object.
      *
      * @uses geos
-     *
-     * @param  int  $srid
-     * @return void
      */
     public function setSRID(int $srid): void
     {

@@ -51,7 +51,6 @@ class Kml extends GeoAdapter
     /**
      * Serialize geometries into a KML string.
      *
-     * @param  Geometry  $geometry
      * @param  string  $namespace  [optional]
      * @return string The KML string representation of the input geometries
      */

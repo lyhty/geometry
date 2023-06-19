@@ -148,8 +148,6 @@ class Polygon extends HomogenousCollection implements SimpleCollection
 
     /**
      * Return the exterior ring of the Polygon.
-     *
-     * @return LineString
      */
     public function exteriorRing(): LineString
     {
@@ -162,8 +160,6 @@ class Polygon extends HomogenousCollection implements SimpleCollection
 
     /**
      * Return the amount of interior rings of the Polygon.
-     *
-     * @return int
      */
     public function numInteriorRings(): int
     {
@@ -178,7 +174,6 @@ class Polygon extends HomogenousCollection implements SimpleCollection
      * Get the N interior ring of the Polygon.
      *
      * @param  int  $n
-     * @return LineString|null
      */
     public function interiorRingN($n): ?LineString
     {
