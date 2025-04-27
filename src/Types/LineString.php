@@ -108,7 +108,7 @@ class LineString extends HomogenousCollection implements SimpleCollection
                 foreach ($this->getPointsFlatMap() as $delta => $point) {
                     $previousPoint = $this->pointN($delta);
                     if ($previousPoint) {
-                        $length += sqrt(pow(($previousPoint->getX() - $point->getX()), 2) + pow(($previousPoint->getY() - $point->getY()), 2));
+                        $length += sqrt(pow($previousPoint->getX() - $point->getX(), 2) + pow($previousPoint->getY() - $point->getY(), 2));
                     }
                 }
 

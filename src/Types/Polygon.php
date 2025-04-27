@@ -62,7 +62,7 @@ class Polygon extends HomogenousCollection implements SimpleCollection
         if ($signed) {
             $area = ($a / 2);
         } else {
-            $area = abs(($a / 2));
+            $area = abs($a / 2);
         }
 
         if ($exteriorOnly == true) {

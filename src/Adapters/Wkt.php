@@ -252,7 +252,7 @@ class Wkt extends GeoAdapter
 
     protected function endsWith($str, $char)
     {
-        return substr($str, (0 - strlen($char))) == $char;
+        return substr($str, 0 - strlen($char)) == $char;
     }
 
     /**
