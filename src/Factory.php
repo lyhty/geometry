@@ -483,7 +483,7 @@ class Factory
      * @param  \Closure|string  $extension  (or the `read` closure)
      * @param  string|null  $message
      */
-    public function extend($adapter, $extension, Closure $write = null): void
+    public function extend($adapter, $extension, ?Closure $write = null): void
     {
         if ($write instanceof Closure) {
             if (! $extension instanceof Closure) {
