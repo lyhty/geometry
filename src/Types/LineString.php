@@ -147,6 +147,7 @@ class LineString extends HomogenousCollection implements SimpleCollection
                         cos($lat1) * cos($lat2) * cos($dlon)
                 );
         }
+
         // Returns length in meters.
         return $length;
     }
@@ -173,6 +174,7 @@ class LineString extends HomogenousCollection implements SimpleCollection
             );
             $degrees += $degree;
         }
+
         // Returns degrees
         return $degrees;
     }
