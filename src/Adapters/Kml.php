@@ -51,10 +51,10 @@ class Kml extends GeoAdapter
     /**
      * Serialize geometries into a KML string.
      *
-     * @param  string  $namespace  [optional]
+     * @param  string|null  $namespace  [optional]
      * @return string The KML string representation of the input geometries
      */
-    public function write(Geometry $geometry, string $namespace = null)
+    public function write(Geometry $geometry, ?string $namespace = null)
     {
         if ($namespace) {
             $this->nss = $namespace.':';

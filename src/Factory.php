@@ -44,10 +44,10 @@ use TypeError;
  * @method string formatWkb($geom, bool $asHex = false)
  * @method string formatEwkb($geom, bool $asHex = false)
  * @method string formatGeoJson($geom, bool $asArray = false)
- * @method string formatKml($geom, string $namespace = null)
- * @method string formatGpx($geom, string $namespace = null)
- * @method string formatGeoRss($geom, string $namespace = null)
- * @method string formatGoogleGeocode($geom, string $token = '')
+ * @method string formatKml($geom, ?string $namespace = null)
+ * @method string formatGpx($geom, ?string $namespace = null)
+ * @method string formatGeoRss($geom, ?string $namespace = null)
+ * @method string formatGoogleGeocode($geom, ?string $token = '')
  * @method string formatGeoHash($geom, bool $precision = null)
  */
 class Factory

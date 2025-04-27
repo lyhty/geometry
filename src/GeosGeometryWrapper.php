@@ -13,7 +13,7 @@ namespace Lyhty\Geometry;
  * @method \GEOSGeometry&static difference(\GEOSGeometry&static $geom)
  * @method \GEOSGeometry&static symDifference(\GEOSGeometry&static $geom)
  * @method \GEOSGeometry&static boundary()
- * @method \GEOSGeometry&static union(\GEOSGeometry&static $otherGeom = null)
+ * @method \GEOSGeometry&static union((\GEOSGeometry&static)|null $otherGeom = null)
  * @method \GEOSGeometry&static pointOnSurface()
  * @method \GEOSGeometry&static centroid()
  * @method relate(\GEOSGeometry&static $otherGeom, string $pattern = '') {}
@@ -63,7 +63,7 @@ namespace Lyhty\Geometry;
  * @method \GEOSGeometry&static snapTo(\GEOSGeometry&static $geom, float $tolerance)
  * @method \GEOSGeometry&static node()
  * @method \GEOSGeometry&static delaunayTriangulation(float $tolerance = 0.0, bool $onlyEdges = false)
- * @method \GEOSGeometry&static voronoiDiagram(float $tolerance = 0.0, bool $onlyEdges = false, \GEOSGeometry&static $extent = null)
+ * @method \GEOSGeometry&static voronoiDiagram(float $tolerance = 0.0, bool $onlyEdges = false, (\GEOSGeometry&static)|null $extent = null)
  */
 interface GeosGeometryWrapper
 {

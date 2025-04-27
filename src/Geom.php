@@ -5,7 +5,7 @@ namespace Lyhty\Geometry;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static \Lyhty\Geometry\Types\Geometry|null parse(mixed $data, string $type = null, mixed ...$otherArgs)
+ * @method static \Lyhty\Geometry\Types\Geometry|null parse(mixed $data, ?string $type = null, mixed ...$otherArgs)
  * @method static mixed format(\Lyhty\Geometry\Types\Geometry $geometry, string $format, mixed ...$otherArgs)
  * @method static \Lyhty\Geometry\Types\Geometry|null wrap(\Lyhty\Geometry\Types\Geometry|\Lyhty\Geometry\Types\Geometry[] $geometries)
  * @method static \Lyhty\Geometry\Types\Geometry|null geosToGeometry(\GEOSGeometry $geos)
@@ -37,11 +37,11 @@ use Illuminate\Support\Facades\Facade;
  * @method static string formatWkb($geom, bool $asHex = false)
  * @method static string formatEwkb($geom, bool $asHex = false)
  * @method static string formatGeoJson($geom, bool $asArray = false)
- * @method static string formatKml($geom, string $namespace = null)
- * @method static string formatGpx($geom, string $namespace = null)
- * @method static string formatGeoRss($geom, string $namespace = null)
+ * @method static string formatKml($geom, ?string $namespace = null)
+ * @method static string formatGpx($geom, ?string $namespace = null)
+ * @method static string formatGeoRss($geom, ?string $namespace = null)
  * @method static string formatGoogleGeocode($geom, string $token = '')
- * @method static string formatGeoHash($geom, bool $precision = null)
+ * @method static string formatGeoHash($geom, ?bool $precision = null)
  *
  * @see \Lyhty\Geometry\Factory
  */
