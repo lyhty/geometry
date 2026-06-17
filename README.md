@@ -1,7 +1,3 @@
-<p>
-  <img src="https://matti.suoraniemi.com/storage/lyhty-geometry.png" width="400">
-</p>
-
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/lyhty/geometry.svg?label=&style=flat-square&logo=packagist&logoColor=white)](https://packagist.org/packages/lyhty/geometry)
 [![PHP](https://img.shields.io/packagist/php-v/lyhty/geometry?style=flat-square&label=&logo=php&logoColor=white)](https://packagist.org/packages/lyhty/geometry)
 [![Laravel](https://img.shields.io/static/v1?label=&message=^12%20|%20^13&color=red&style=flat-square&logo=laravel&logoColor=white)](https://packagist.org/packages/lyhty/geometry)
