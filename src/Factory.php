@@ -450,8 +450,6 @@ class Factory
 
     /**
      * Make an adapter instance from an extension adapter.
-     *
-     * @return void
      */
     protected function makeExtensionAdapter(string $type)
     {
